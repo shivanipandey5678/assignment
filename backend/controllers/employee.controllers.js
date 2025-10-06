@@ -2,11 +2,13 @@ import Employee from "../models/Employee.Model.js";
 //  --------------CRUD CONTROLLERS-----------------
 
 //CREATE NEW EMPLOYEE
+//REMOVING STATUS CODE SO THAT USER CAN GET EXACT CUSTOME ERROR WHICH TELL THEM CLERALY WHAT WENT WRONG
+
 const createNewEmployee = async (req, res) => {
   try {
     const { name, email, position } = req.body;
     if (!name || !email || !position) {
-      return res.status(400).json({
+      return res.json({
         success: false,
         message:
           "All fields are required: name, email, and position. Please fill in all details.",
@@ -16,7 +18,7 @@ const createNewEmployee = async (req, res) => {
     // Check duplicate email
     const existingEmployee = await Employee.findOne({ email });
     if (existingEmployee) {
-      return res.status(400).json({
+      return res.json({
         success: false,
         message: "Employee with this email already exists.",
       });
@@ -40,9 +42,7 @@ const createNewEmployee = async (req, res) => {
     }
 
     // Other server errors
-    res
-      .status(500)
-      .json({ success: false, message: ` Error : ${error.message} 🔴` });
+    res.json({ success: false, message: `  ${error.message} ` });
   }
 };
 
@@ -66,7 +66,7 @@ const editEmployeeData = async (req, res) => {
     );
 
     if (!employee) {
-      return res.status(404).json({
+      return res.json({
         success: false,
         message: "Employee not found.",
       });
@@ -79,9 +79,7 @@ const editEmployeeData = async (req, res) => {
     });
   } catch (error) {
     // Other server errors
-    res
-      .status(500)
-      .json({ success: false, message: ` Error : ${error.message} 🔴` });
+    res.json({ success: false, message: `  ${error.message} ` });
   }
 };
 
@@ -91,7 +89,7 @@ const deleteEmployee = async (req, res) => {
     const { id } = req.params;
     const deletedEmployee = await Employee.findByIdAndDelete(id);
     if (!deletedEmployee) {
-      return res.status(404).json({
+      return res.json({
         success: false,
         message: "Employee not found.",
       });
@@ -103,9 +101,7 @@ const deleteEmployee = async (req, res) => {
       message: "Employee deleted successfully 🟢",
     });
   } catch (error) {
-    res
-      .status(500)
-      .json({ success: false, message: ` Error : ${error.message} 🔴` });
+    res.json({ success: false, message: `  ${error.message} ` });
   }
 };
 
@@ -116,9 +112,7 @@ const getAllEmployee = async (req, res) => {
 
     // Handle empty array
     if (!employees || employees.length === 0)
-      return res
-        .status(404)
-        .json({ success: false, message: "No Employee found!" });
+      return res.json({ success: true, message: "No Employee found!" });
 
     // Success response
     res.status(200).json({
@@ -127,13 +121,11 @@ const getAllEmployee = async (req, res) => {
       message: "Employees data fetched successfully 🟢",
     });
   } catch (error) {
-    res
-      .status(500)
-      .json({ success: false, message: ` Error : ${error.message} 🔴` });
+    res.json({ success: false, message: `  ${error.message} ` });
   }
 };
 
-//GET ALL EMPLOYEE
+//GET one EMPLOYEE
 const getOneEmployee = async (req, res) => {
   try {
     const { id } = req.params;
@@ -142,9 +134,7 @@ const getOneEmployee = async (req, res) => {
 
     // Handle not found situation
     if (!employee)
-      return res
-        .status(404)
-        .json({ success: false, message: "Employee not found!" });
+      return res.json({ success: false, message: "Employee not found!" });
 
     // Success response
     res.status(200).json({
@@ -153,9 +143,7 @@ const getOneEmployee = async (req, res) => {
       message: "Employee data fetched successfully 🟢",
     });
   } catch (error) {
-    res
-      .status(500)
-      .json({ success: false, message: ` Error : ${error.message} 🔴` });
+    res.json({ success: false, message: `  ${error.message}` });
   }
 };
 
