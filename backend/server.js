@@ -17,10 +17,10 @@ app.use(express.json())
 app.use("/api/employee",router)
 // -------------------HEALTH-CHECK ROUTE----------------
 app.get('/health-check' , (req, res)=> {
-    res.send('Server is running!')
+    res.send(`Server is running at ! ${PORT}`)
 })
 
 app.listen(PORT , async() => {
     await connectDb();
-    console.log(`Server running on port ${PORT}`)
+    console.log(`✅ App is listening on port ${PORT}`);
 });
