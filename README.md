@@ -134,9 +134,6 @@ npm run dev
 | Read Single Employee | GET    | `http://localhost:5000/api/employee/:id`     | -                                                                             | Get details of a specific employee |
 | Update Employee      | PUT    | `http://localhost:5000/api/employee/:id`     | `{ "name": "Shivani Pandey" }`                                                | Edit employee details (partial OK) |
 | Delete Employee      | DELETE | `http://localhost:5000/api/employee/:id`     | -                                                                             | Remove employee by ID              |
--                                                                          |
--                                                                            |
-
 ---
 
 ## 🚀 Usage
