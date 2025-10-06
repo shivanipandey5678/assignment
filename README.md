@@ -129,11 +129,11 @@ npm run dev
 **Base URL:** `/api/employee`
 | Endpoint Name        | Method | URL                                          | Request Body Example                                                          | Description                        |
 | -------------------- | ------ | -------------------------------------------- | ----------------------------------------------------------------------------- | ---------------------------------- |
-| Create Employee      | POST   | `https://verto-assignment-backend.vercel.app//api/employee`         | `{ "name": "Shivani", "email": "shivanigmail.com", "position": "Developer" }` | Add a new employee                 |
-| Read All Employees   | GET    | `https://verto-assignment-backend.vercel.app//api/employee/get-all` | -                                                                             | Fetch the list of all employees    |
-| Read Single Employee | GET    | `https://verto-assignment-backend.vercel.app//api/employee/:id`     | -                                                                             | Get details of a specific employee |
-| Update Employee      | PUT    | `https://verto-assignment-backend.vercel.app//api/employee/:id`     | `{ "name": "Shivani Pandey" }`                                                | Edit employee details (partial OK) |
-| Delete Employee      | DELETE | `https://verto-assignment-backend.vercel.app//api/employee/:id`     | -                                                                             | Remove employee by ID              |
+| Create Employee      | POST   | `https://verto-assignment-backend.vercel.app/api/employee`         | `{ "name": "Shivani", "email": "shivanigmail.com", "position": "Developer" }` | Add a new employee                 |
+| Read All Employees   | GET    | `https://verto-assignment-backend.vercel.app/api/employee/get-all` | -                                                                             | Fetch the list of all employees    |
+| Read Single Employee | GET    | `https://verto-assignment-backend.vercel.app/api/employee/:id`     | -                                                                             | Get details of a specific employee |
+| Update Employee      | PUT    | `https://verto-assignment-backend.vercel.app/api/employee/:id`     | `{ "name": "Shivani Pandey" }`                                                | Edit employee details (partial OK) |
+| Delete Employee      | DELETE | `https://verto-assignment-backend.vercel.app/api/employee/:id`     | -                                                                             | Remove employee by ID              |
 ---
 
 ## 🚀 Usage

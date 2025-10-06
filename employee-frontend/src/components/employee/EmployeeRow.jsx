@@ -1,7 +1,7 @@
 import React from "react";
 import { edit_icon, trash_icon } from "../../assets/assets.js";
 import dayjs from "dayjs";
-import {useAppContext} from '../../context/useContext.jsx'
+import { useAppContext } from "../../context/useContext.jsx";
 
 const EmployeeRow = ({
   name,
@@ -13,8 +13,7 @@ const EmployeeRow = ({
 }) => {
   const formattedDate = dayjs(createdAt).format("DD/MM/YYYY, hh:mm A");
 
-       
-        const {navigate, toast,axios,fetchEmployeesData} = useAppContext();
+  const { navigate, toast, axios, fetchEmployeesData } = useAppContext();
 
   const deleteEmployee = async (_id) => {
     try {
@@ -24,7 +23,7 @@ const EmployeeRow = ({
       const { data } = await axios.delete(`/api/employee/${_id}`);
       if (data.success) {
         toast.success(data.message);
-        await fetchEmployeesData()
+        await fetchEmployeesData();
         onDeleteSuccess();
       } else {
         toast.error(data.message);
