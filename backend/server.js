@@ -17,7 +17,7 @@ app.use(express.json())
 app.use("/api/employee",router)
 // -------------------HEALTH-CHECK ROUTE----------------
 app.get('/health-check' , (req, res)=> {
-    res.send(`Server is running at ! ${PORT}`)
+    res.send(`Server is running at ${PORT}!`)
 })
 
 app.listen(PORT , async() => {
